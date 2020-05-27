@@ -14,17 +14,20 @@ app = Flask(__name__)
 # Example json post request
 # {
 # 	"PictureUrl"	  : "https://dl.reseau-ges.fr/public/dcj6AO1JD5-IfaXC28_maGKNp4m2pxjP",
-# 	"PictureName"	  : "gesges",
+# 	"PictureName"	  : "test",
 # 	"Filter"    	  : "GRAYSCALE",
 # 	"FilterIntensity" : "0.5",
-# 	"ExportFormat"    : "png"
+# 	"ExportFormat"    : "jpg"
 # }
 
 #todo add exception handling for images and connection problems
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
+
+
         postJson = request.get_json()
+
 
         myFrame = Frame(postJson["PictureUrl"], postJson["PictureName"], postJson["ExportFormat"])
         myFilter = Filter(postJson["Filter"], postJson["FilterIntensity"], postJson["ExportFormat"])
