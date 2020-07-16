@@ -5,24 +5,29 @@ from io import BytesIO
 from Processing import Filter
 
 class Frame:
-    _url = ""
+    Url = ""
     ImageName = ""
-    ExportFormat = ""
+    #ExportFormat = ""
     _appliedFilters = []
 
     Path = ''
-    NewUrl = ''
+    #NewUrl = ''
 
-    def __init__(self, url, imageName, exportFormat):
-        self._url = url
+    # def __init__(self, url, imageName, exportFormat):
+    #     self.Url = url
+    #     self.ImageName = imageName
+    #     self.ExportFormat = exportFormat
+
+    def __init__(self, url, imageName):
+        self.Url = url
         self.ImageName = imageName
-        self.ExportFormat = exportFormat
+
 
     def downloadAndSaveImage(self):
         #def getImageFromUrl(url, name, format):
-        response = requests.get(self._url)
+        response = requests.get(self.Url)
         img = Image.open(BytesIO(response.content))
-        path = '..\\OriginalPictures\\' + self.ImageName + '.' + self.ExportFormat
+        path = '..\\OriginalPictures\\' + self.ImageName
         img = img.save(path)
         self.Path = path
 

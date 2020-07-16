@@ -1,13 +1,11 @@
 class Filter:
-    # todo add categories to make pipelines easier
-    #    self.FILTER_CATEGORY = filterCategory
 
-    def __init__(self, filterName, filterIntensity=(5, 5), exportFormat='png'):
+    def __init__(self, filterName, orientation='none', filterIntensity=(5, 5), zoomValue=0, rgb1=(1,2,3), rgb2=(1,2,3)):
         self.FILTER_NAME = filterName
         self.FilterIntensity = filterIntensity
-        self.ExportFormat = exportFormat
-
-
-
+        self.orientation = orientation
+        self.zoomValue = zoomValue
+        self.RGB1 = rgb1
+        self.RGB2 = rgb2
 
 
